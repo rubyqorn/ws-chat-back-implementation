@@ -13,7 +13,7 @@ class DatabaseSettings
 
     /**
      * Initiate DatabaseSettings constructor method
-     * @param arrat $yamlDBSettings
+     * @param array $yamlDBSettings
      * @return void 
      */ 
     public function __construct(array $yamlDBSettings)

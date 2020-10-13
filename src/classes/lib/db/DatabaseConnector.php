@@ -3,23 +3,23 @@
 namespace WsChatApi\Libraries\DB;
 
 use PDO;
-use WsChatApi\Libraries\DB\Settings\SettingsYAMLManager;
+use WsChatApi\Libraries\DB\Settings\SettingsManager;
 
 class DatabaseConnector
 {
     /**
-     * @var \WsChat\Libraries\DB\Settings\SettingsYAMLManager 
-     */ 
-    protected ?SettingsYAMLManager $settings;
+     * @var \WsChat\Libraries\DB\Settings\SettingsYAMLManager
+     */
+    protected ?SettingsManager $settings;
 
     /**
      * Initiate DatabaseConnector constructor method
-     * @return void 
-     */ 
+     * @return void
+     */
     public function __construct()
     {
-        $this->settings = new SettingsYAMLManager(
-            '/../../config/database_settings.yml'
+        $this->settings = new SettingsManager(
+            '../config/database_settings.php'
         );
     }
 }

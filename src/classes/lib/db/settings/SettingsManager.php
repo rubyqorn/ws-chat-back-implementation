@@ -2,7 +2,7 @@
 
 namespace WsChatApi\Libraries\DB\Settings;
 
-class SettingsYAMLManager
+class SettingsManager
 {
     /**
      * Database settings file in 
@@ -28,11 +28,11 @@ class SettingsYAMLManager
      */ 
     public function getSettings()
     {
-        $parsedSettings = yaml_parse($this->file);
-
-        if (!$parsedSettings) {
+        if (!file_exists($this->file)) {
             return false;
         }
+
+        $parsedSettings = require_once($this->file);
 
         return new DatabaseSettings($parsedSettings);
     }
