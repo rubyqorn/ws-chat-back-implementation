@@ -8,18 +8,51 @@ use WsChatApi\Libraries\DB\Settings\SettingsManager;
 class DatabaseConnector
 {
     /**
-     * @var \WsChat\Libraries\DB\Settings\SettingsYAMLManager
-     */
-    protected ?SettingsManager $settings;
+     * Created connection with db using
+     * PDO class
+     * @var \PDO 
+     */ 
+    protected ?PDO $connection = null;
 
     /**
-     * Initiate DatabaseConnector constructor method
-     * @return void
-     */
-    public function __construct()
+     * Return list of database settings.Including driver, host
+     * db name, user, password
+     * @param \WsChatApi\Libraries\DB\Settings\SettingsManager $settingsManager
+     * @return \WsChatApi\Libraries\DB\Settings\DatabaseSettings 
+     */ 
+    private function getDatabaseSettings(SettingsManager $settingsManager)
     {
-        $this->settings = new SettingsManager(
-            '../config/database_settings.php'
-        );
+        $dbSettings = $settingsManager->getSettings();
+
+        if (!$dbSettings) {
+            return false;
+        }
+
+        return $dbSettings;
+    }
+
+    /**
+     * Set connection with database using PDO class
+     * @param \WsChatApi\Libraries\DB\Settings\SettingsManager $settingsManager
+     * @return \PDO
+     */ 
+    protected function getConnection(SettingsManager $settingsManager)
+    {
+        $settings = $this->getDatabaseSettings($settingsManager);
+
+        if (!$settings) {
+            return false;
+        }
+
+        if ($this->connection == null) {
+            $this->connection = new PDO(
+                "{$settings->getDriver()}:host={$settings->getHost()};dbname={$settings->getDBName()}",
+                $settings->getDBUser(), $settings->getDBPassword()
+            );
+
+            return $this->connection;
+        }
+
+        return $this->connection;
     }
 }

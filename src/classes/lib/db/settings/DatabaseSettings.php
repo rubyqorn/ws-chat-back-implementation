@@ -5,7 +5,7 @@ namespace WsChatApi\Libraries\DB\Settings;
 class DatabaseSettings
 {
     /**
-     * Parsed yaml file with database
+     * Parsed file with database
      * settings
      * @var array 
      */ 
@@ -13,12 +13,12 @@ class DatabaseSettings
 
     /**
      * Initiate DatabaseSettings constructor method
-     * @param array $yamlDBSettings
+     * @param array $dbSettings
      * @return void 
      */ 
-    public function __construct(array $yamlDBSettings)
+    public function __construct(array $dbSettings)
     {
-        $this->settings = $yamlDBSettings;
+        $this->settings = $dbSettings;
     }
 
     /**
@@ -36,7 +36,7 @@ class DatabaseSettings
      */ 
     public function getDriver()
     {
-        return $this->settings['settings']['driver'];
+        return $this->settings['driver'];
     }
 
     /**
@@ -45,7 +45,7 @@ class DatabaseSettings
      */ 
     public function getHost()
     {
-        return $this->settings['settings']['host'];
+        return $this->settings['host'];
     }
 
     /**
@@ -55,7 +55,7 @@ class DatabaseSettings
      */ 
     public function getDBName()
     {
-        return $this->settings['settings']['db_name'];
+        return $this->settings['db_name'];
     }
 
     /**
@@ -65,7 +65,7 @@ class DatabaseSettings
      */ 
     public function getDBUser()
     {
-        return $this->settings['settings']['db_user'];
+        return $this->settings['db_user'];
     }
 
     /**
@@ -74,6 +74,6 @@ class DatabaseSettings
      */ 
     public function getDBPassword()
     {
-        return $this->settings['settings']['db_password'];
+        return $this->settings['db_password'];
     }
 }

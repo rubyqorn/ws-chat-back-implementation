@@ -5,25 +5,23 @@ namespace WsChatApi\Libraries\DB\Settings;
 class SettingsManager
 {
     /**
-     * Database settings file in 
-     * yml or yaml format
+     * Database settings file
      * @var string 
      */ 
     private string $file;
 
     /**
-     * Initiate SettingsYAMLManager constructor method
-     * @param string $yamlDBSettingsFile
+     * Initiate SettingsManager constructor method
+     * @param string $dbSettingsFile
      * @return void  
      */ 
-    public function __construct(string $yamlDBSettingsFile)
+    public function __construct(string $dbSettingsFile)
     {
-        $this->file = $yamlDBSettingsFile;
+        $this->file = $dbSettingsFile;
     }
 
     /**
-     * Parse yaml structure and return database settings  
-     * manipulator
+     * Return list of specified database settings
      * @return \WsChat\Libraries\DB\Settings\DatabaseSettings
      */ 
     public function getSettings()
