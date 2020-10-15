@@ -2,7 +2,7 @@
 
 namespace WsChatApi\Libraries\DB\Settings;
 
-class SettingsManager
+class SettingsManager implements ISettingsManager
 {
     /**
      * Database settings file

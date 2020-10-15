@@ -3,7 +3,7 @@
 namespace WsChatApi\Libraries\DB;
 
 use PDO;
-use WsChatApi\Libraries\DB\Settings\SettingsManager;
+use WsChatApi\Libraries\DB\Settings\ISettingsManager;
 
 class DatabaseConnector
 {
@@ -20,7 +20,7 @@ class DatabaseConnector
      * @param \WsChatApi\Libraries\DB\Settings\SettingsManager $settingsManager
      * @return \WsChatApi\Libraries\DB\Settings\DatabaseSettings 
      */ 
-    private function getDatabaseSettings(SettingsManager $settingsManager)
+    private function getDatabaseSettings(ISettingsManager $settingsManager)
     {
         $dbSettings = $settingsManager->getSettings();
 
@@ -33,10 +33,10 @@ class DatabaseConnector
 
     /**
      * Set connection with database using PDO class
-     * @param \WsChatApi\Libraries\DB\Settings\SettingsManager $settingsManager
+     * @param \WsChatApi\Libraries\DB\Settings\ISettingsManager $settingsManager
      * @return \PDO
      */ 
-    protected function getConnection(SettingsManager $settingsManager)
+    protected function getConnection(ISettingsManager $settingsManager)
     {
         $settings = $this->getDatabaseSettings($settingsManager);
 
@@ -49,6 +49,7 @@ class DatabaseConnector
                 "{$settings->getDriver()}:host={$settings->getHost()};dbname={$settings->getDBName()}",
                 $settings->getDBUser(), $settings->getDBPassword()
             );
+            $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             return $this->connection;
         }

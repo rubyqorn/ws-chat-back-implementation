@@ -2,10 +2,9 @@
 
 namespace WsChatApi\Libraries\DB;
 
-use WsChatApi\Libraries\DB\DatabaseConnector;
 use WsChatApi\Libraries\DB\Settings\SettingsManager;
 
-class MySQLDatabaseConnection extends DatabaseConnector
+class MySQLDatabaseConnection extends DatabaseConnector implements IDatabaseJoiner
 {
     /**
      * @var \WsChatApi\Libraries\DB\Settings\SettingsManager 
@@ -22,7 +21,23 @@ class MySQLDatabaseConnection extends DatabaseConnector
         $this->settingsManager = new SettingsManager(
             '../config/database_settings.php'
         );
-
-        $this->getConnection($this->settingsManager);
     }
+
+    /**
+     * Connect to the MySQL database and return instance 
+     * of \PDO class or throw new Exception
+     * @throws \Exception
+     * @return \PDO 
+     */ 
+    public function join() : \PDO
+    {
+        $connection = $this->getConnection($this->settingsManager);
+
+        if (!$connection) {
+            return new \Exception('Failed to connect to the MySQL database');
+        }
+
+        return $connection;
+    }
+
 }
