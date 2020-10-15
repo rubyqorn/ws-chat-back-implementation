@@ -1,0 +1,18 @@
+{
+    "name": "rubyqorn/ws-chat-back-implementation",
+    "description": "API endpoints for chat based on web sockets written on PHP lang",
+    "type": "project",
+    "license": "ISC",
+    "authors": [
+        {
+            "name": "Anton Hideger",
+            "email": "antonhideger1337@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "WsChatApi\\": "src/classes/"
+        }
+    },
+    "require": {}
+}
