@@ -3,29 +3,23 @@
 namespace WsChatApi\Models;
 
 use WsChatApi\Libraries\DB\MySQLDatabaseConnection;
+use WsChatApi\Libraries\DB\Query;
 
 class MySQLDatabaseModel extends MySQLDatabaseConnection
 {
     /**
-     * Set connection with MySQL database and 
-     * return \PDO instance 
-     * @return \PDO 
+     * SQL query manipulator instance
+     * @var \WsChatApi\Libraries\DB\Query 
      */ 
-    private function connect()
-    {
-        return $this->join();
-    }
+    protected ?Query $query = null;
 
     /**
-     * Query all records from specified table
-     * @return array 
+     * Initiate MySQLDatabaseModel constructor method 
+     * @return void 
      */ 
-    public function select()
+    public function __construct()
     {
-        $statement = $this->connect()->query(
-            "SELECT * FROM {$this->table}"
-        );
-
-        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+        parent::__construct();
+        $this->query = new Query($this, $this->table);
     }
 }
