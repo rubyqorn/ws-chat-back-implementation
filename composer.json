@@ -14,5 +14,7 @@
             "WsChatApi\\": "src/classes/"
         }
     },
-    "require": {}
+    "require": {
+        "rubyqorn/web-socket": "^0.1.0"
+    }
 }
