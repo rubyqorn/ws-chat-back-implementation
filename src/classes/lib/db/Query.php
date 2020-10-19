@@ -51,6 +51,16 @@ class Query
     }
 
     /**
+     * Delete previosly generated SQL 
+     * query
+     * @return void 
+     */ 
+    private function cleanSQLQuery()
+    {
+        $this->sql = '';
+    }
+
+    /**
      * Return data from SQL statement using query()
      * method of \PDO class 
      * @return array 
@@ -91,6 +101,7 @@ class Query
      */ 
     public function selectAll()
     {
+        $this->cleanSQLQuery();
         $this->sql .= "SELECT * FROM {$this->table}";
         return $this;
     }
@@ -101,6 +112,7 @@ class Query
      */ 
     public function selectRows(string $rows)
     {
+        $this->cleanSQLQuery();
         $this->sql .= "SELECT {$rows} FROM {$this->table}";
         return $this;
     }
@@ -108,12 +120,13 @@ class Query
 
     /**
      * Shape SQL statement which insert data in database
-     * @param string $rows | name = ?, email = ? 
+     * @param string $rows | name, email 
      * @param array $values | ['John', 'example@mail.com']
      * @return \WsChatApi\Libraries\DB\Query
      */ 
     public function insert(string $rows, array $values)
     {
+        $this->cleanSQLQuery();
         $questionMarks = QuestionMarkGenerator::generate($values); 
 
         $this->sql .= "INSERT INTO {$this->table} ({$rows}) VALUES ({$questionMarks})";
@@ -130,6 +143,7 @@ class Query
      */ 
     public function update(string $columns, array $values)
     {
+        $this->cleanSQLQuery();
         $this->sql .= "UPDATE {$this->table} SET {$columns}";
         $this->values = $values;
         return $this;
@@ -142,6 +156,7 @@ class Query
      */ 
     public function delete()
     {
+        $this->cleanSQLQuery();
         $this->sql .= "DELETE FROM {$this->table}"; 
         return $this;
     }
