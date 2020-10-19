@@ -12,4 +12,34 @@ class User extends MySQLDatabaseModel
      * @var string 
      */ 
     protected string $table = 'users';
+
+    /**
+     * Validate user existence in users table
+     * @param string $nickname 
+     * @return bool 
+     */ 
+    public function checkUserExistence(string $nickname)
+    {
+        $user = $this->query->selectAll()->where('nickname', $nickname)->getFromPrepared();
+        
+        if (!empty($user)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Create new user in database with unique nickname 
+     * @param string $name 
+     * @param string $nickname 
+     * @return bool  
+     */ 
+    public function registerNewUser(string $name, string $nickname)
+    {
+        return $this->query->insert(
+            'name, nickname',
+            [$name, $nickname]
+        )->push();
+    }
 }

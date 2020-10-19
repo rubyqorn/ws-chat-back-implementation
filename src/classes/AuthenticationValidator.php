@@ -13,9 +13,9 @@ class AuthenticationValidator
      */ 
     public static function validate(\Closure $success, \Closure $failure)
     {
-        if(!isset($_SESSION['loged_in'])) {
-            return $failure();
-        }
+        // if(!isset($_SESSION['loged_in'])) {
+        //     return $failure();
+        // }
 
         return $success();
     }
