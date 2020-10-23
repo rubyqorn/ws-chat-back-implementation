@@ -8,7 +8,8 @@ use WsChatApi\Response;
 
 AuthenticationValidator::validate(
     function() {
-        $users = new UsersListController();
+        $controller = new UsersListController();
+        $users = $controller->getList();
 
         if (!$users) {
             return Response::failure('fail', 'Failed to load users list');
