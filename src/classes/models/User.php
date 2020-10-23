@@ -42,4 +42,13 @@ class User extends MySQLDatabaseModel
             [$name, $nickname]
         )->push();
     }
+
+    /**
+     * Return list of registered users in database
+     * @return array 
+     */ 
+    public function queryAllUsers()
+    {
+        return $this->query->selectAll()->getFromQuery();
+    }
 }
