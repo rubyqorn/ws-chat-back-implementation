@@ -162,6 +162,18 @@ class Query
     }
 
     /**
+     * SQL statement which join to tables by the
+     * same table columns
+     * @param string $joinedTable
+     * @param string $condition | table1.id = table2.id 
+     */ 
+    public function innerJoin(string $joinedTable, string $condition)
+    {
+        $this->sql .= " INNER JOIN {$joinedTable} ON {$condition}";
+        return $this;
+    }
+
+    /**
      * SQL expression which can be used with query 
      * methods. Alternative WHERE in SQL statement
      * @param string $row | name = ?

@@ -23,15 +23,14 @@ class UsersListController
 
     /**
      * Return list of created users from database
-     * or empty array if users doesnt exists
-     * @return array
+     * @return array|bool
      */ 
     public function getList()
     {
         $users = $this->user->queryAllUsers();
 
         if (empty($users)) {
-            return [];
+            return false;
         }
 
         return $users;

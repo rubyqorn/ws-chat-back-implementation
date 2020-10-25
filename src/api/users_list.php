@@ -12,7 +12,7 @@ AuthenticationValidator::validate(
         $users = $controller->getList();
 
         if (!$users) {
-            return Response::failure('fail', 'Failed to load users list');
+            return Response::failure('fail', []);
         }
 
         return Response::success('success', $users);
