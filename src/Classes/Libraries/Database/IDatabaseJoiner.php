@@ -1,6 +1,6 @@
 <?php 
 
-namespace WsChatApi\Libraries\DB;
+namespace WsChatApi\Libraries\Database;
 
 use PDO;
 

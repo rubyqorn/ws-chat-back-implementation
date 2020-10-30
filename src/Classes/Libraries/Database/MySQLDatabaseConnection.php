@@ -1,13 +1,13 @@
 <?php 
 
-namespace WsChatApi\Libraries\DB;
+namespace WsChatApi\Libraries\Database;
 
-use WsChatApi\Libraries\DB\Settings\SettingsManager;
+use WsChatApi\Libraries\Database\Settings\SettingsManager;
 
 class MySQLDatabaseConnection extends DatabaseConnector implements IDatabaseJoiner
 {
     /**
-     * @var \WsChatApi\Libraries\DB\Settings\SettingsManager 
+     * @var \WsChatApi\Libraries\Database\Settings\SettingsManager 
      */ 
     private ?SettingsManager $settingsManager;
 

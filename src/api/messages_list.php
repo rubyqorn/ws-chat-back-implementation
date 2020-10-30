@@ -4,14 +4,15 @@ require_once ('../../vendor/autoload.php');
 
 use WsChatApi\Controllers\ChatListController;
 use WsChatApi\AuthenticationValidator;
+use WsChatApi\Models\DALFactory;
 use WsChatApi\Response;
 
 AuthenticationValidator::validate(
     function() {
-        $controller = new ChatListController();
-        $list = $controller->getAllMessages();
+        $controller = new ChatListController(DALFactory::getChat());
+        $list = $controller->getList();
 
-        if (!$list) {
+        if (!$list || empty($list)) {
             return Response::failure('fail', []);
         }
 
