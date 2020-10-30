@@ -16,7 +16,7 @@
  </testsuites>
 
  <php>
-    <env name="APP_ENV" values="testing" />
+    <env name="APP_ENV" value="testing" />
  </php>
 
 </phpunit>
