@@ -2,35 +2,18 @@
 
 namespace WsChatApi\Controllers;
 
-use WsChatApi\Models\User;
-
-class UsersListController
+class UsersListController extends ListManager
 {
-    /**
-     * DAL for users table
-     * @var \WsCahtApi\Models\User 
-     */ 
-    protected ?User $user = null;
-
-    /**
-     * Initiate UsersListController constructor method
-     * @return void 
-     */   
-    public function __construct()
-    {
-        $this->user = new User();
-    }
-
     /**
      * Return list of created users from database
      * @return array|bool
      */ 
-    public function getList()
+    public function getList(): array
     {
         $users = $this->user->queryAllUsers();
 
         if (empty($users)) {
-            return false;
+            return [];
         }
 
         return $users;
