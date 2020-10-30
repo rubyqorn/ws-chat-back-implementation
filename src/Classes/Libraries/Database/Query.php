@@ -1,12 +1,12 @@
 <?php 
 
-namespace WsChatApi\Libraries\DB;
+namespace WsChatApi\Libraries\Database;
 
 class Query
 {
     /**
      * Database connection instance 
-     * @var \WsChatApi\Libraries\DB\IDatabaseJoiner 
+     * @var \WsChatApi\Libraries\Database\IDatabaseJoiner 
      */ 
     private ?IDatabaseJoiner $joiner = null;
 
@@ -39,7 +39,7 @@ class Query
     /**
      * Initiate Query constructor method and set table
      * where will be query data and connection with database
-     * @param \WsChatApi\Libraries\DB\IDatabaseJoiner
+     * @param \WsChatApi\Libraries\Database\IDatabaseJoiner
      * @param string $table 
      * @return void 
      */ 

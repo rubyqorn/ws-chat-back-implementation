@@ -1,6 +1,6 @@
 <?php 
 
-namespace WsChatApi\Libraries\DB\Settings;
+namespace WsChatApi\Libraries\Database\Settings;
 
 class MockedSettingsManager implements ISettingsManager
 {
@@ -24,7 +24,7 @@ class MockedSettingsManager implements ISettingsManager
      * Get instance of DatabaseSettings class
      * which can manipulate database driver, host, table, 
      * user and password
-     * @return \WsChatApi\Libraries\DB\Settings\DatabaseSettings 
+     * @return \WsChatApi\Libraries\Database\Settings\DatabaseSettings 
      */ 
     public function getSettings()
     {

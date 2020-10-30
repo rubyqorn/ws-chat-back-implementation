@@ -1,6 +1,6 @@
 <?php 
 
-namespace WsChatApi\Libraries\DB\Settings;
+namespace WsChatApi\Libraries\Database\Settings;
 
 class DatabaseSettings
 {

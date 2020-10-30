@@ -1,9 +1,9 @@
 <?php 
 
-namespace WsChatApi\Libraries\DB;
+namespace WsChatApi\Libraries\Database;
 
 use PDO;
-use WsChatApi\Libraries\DB\Settings\ISettingsManager;
+use WsChatApi\Libraries\Database\Settings\ISettingsManager;
 
 class DatabaseConnector
 {
@@ -17,8 +17,8 @@ class DatabaseConnector
     /**
      * Return list of database settings.Including driver, host
      * db name, user, password
-     * @param \WsChatApi\Libraries\DB\Settings\SettingsManager $settingsManager
-     * @return \WsChatApi\Libraries\DB\Settings\DatabaseSettings 
+     * @param \WsChatApi\Libraries\Database\Settings\SettingsManager $settingsManager
+     * @return \WsChatApi\Libraries\Database\Settings\DatabaseSettings 
      */ 
     private function getDatabaseSettings(ISettingsManager $settingsManager)
     {
@@ -33,7 +33,7 @@ class DatabaseConnector
 
     /**
      * Set connection with database using PDO class
-     * @param \WsChatApi\Libraries\DB\Settings\ISettingsManager $settingsManager
+     * @param \WsChatApi\Libraries\Database\Settings\ISettingsManager $settingsManager
      * @return \PDO
      */ 
     protected function getConnection(ISettingsManager $settingsManager)

@@ -1,14 +1,14 @@
 <?php 
 
-namespace WsChatApi\Libraries\DB;
+namespace WsChatApi\Libraries\Database;
 
-use WsChatApi\Libraries\DB\Settings\MockedSettingsManager;
+use WsChatApi\Libraries\Database\Settings\MockedSettingsManager;
 
 class MockedDatabaseConnection extends DatabaseConnector implements IDatabaseJoiner
 {
     /**
      * Mocked settings manager class 
-     * @var \WsChatApi\Libraries\DB\Settings\MockedSettingsManager 
+     * @var \WsChatApi\Libraries\Database\Settings\MockedSettingsManager 
      */ 
     private ?MockedSettingsManager $settingsManager;
 

@@ -1,6 +1,6 @@
 <?php 
 
-namespace WsChatApi\Chat;
+namespace WsChatApi\Libraries\Chat;
 
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;

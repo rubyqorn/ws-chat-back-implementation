@@ -1,6 +1,6 @@
 <?php 
 
-namespace WsChatApi\Libraries\DB\Settings;
+namespace WsChatApi\Libraries\Database\Settings;
 
 class SettingsManager implements ISettingsManager
 {
@@ -22,7 +22,7 @@ class SettingsManager implements ISettingsManager
 
     /**
      * Return list of specified database settings
-     * @return \WsChat\Libraries\DB\Settings\DatabaseSettings
+     * @return \WsChat\Libraries\Database\Settings\DatabaseSettings
      */ 
     public function getSettings()
     {

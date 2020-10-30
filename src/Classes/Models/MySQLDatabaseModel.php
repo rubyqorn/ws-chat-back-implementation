@@ -2,14 +2,14 @@
 
 namespace WsChatApi\Models;
 
-use WsChatApi\Libraries\DB\MySQLDatabaseConnection;
-use WsChatApi\Libraries\DB\Query;
+use WsChatApi\Libraries\Database\MySQLDatabaseConnection;
+use WsChatApi\Libraries\Database\Query;
 
 class MySQLDatabaseModel extends MySQLDatabaseConnection
 {
     /**
      * SQL query manipulator instance
-     * @var \WsChatApi\Libraries\DB\Query 
+     * @var \WsChatApi\Libraries\Database\Query 
      */ 
     protected ?Query $query = null;
 
