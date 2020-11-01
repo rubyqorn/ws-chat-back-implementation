@@ -6,7 +6,7 @@ class UsersListController extends ListManager
 {
     /**
      * Return list of created users from database
-     * @return array|bool
+     * @return array
      */ 
     public function getList(): array
     {
