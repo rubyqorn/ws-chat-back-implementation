@@ -2,7 +2,7 @@
 
 require_once ('../../vendor/autoload.php');
 
-use WsChatApi\Chat\WebSocketChatHandler;
+use WsChatApi\Libraries\Chat\WebSocketChatHandler;
 use Ratchet\Server\EchoServer;
 use Ratchet\App;
 
