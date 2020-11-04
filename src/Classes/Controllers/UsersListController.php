@@ -10,7 +10,7 @@ class UsersListController extends ListManager
      */ 
     public function getList(): array
     {
-        $users = $this->user->queryAllUsers();
+        $users = $this->dataAccessLayer->queryAllUsers();
 
         if (empty($users)) {
             return [];

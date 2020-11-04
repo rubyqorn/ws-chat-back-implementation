@@ -10,7 +10,7 @@ class ChatListController extends ListManager
      */ 
     public function getList(): array
     {
-        $messages = $this->chat->queryAllMessages();
+        $messages = $this->dataAccessLayer->queryAllMessages();
 
         if (empty($messages)) {
             return [];
